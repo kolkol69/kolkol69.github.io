@@ -1,6 +1,9 @@
 # crowd-simulation
 Aggregate dynamics for dense crowd simulation
 
+## GitHub pages
+Website is always late from one commit 
+
 ## Test website
 https://kolkol69.github.io/
 
