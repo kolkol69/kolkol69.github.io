@@ -1,4 +1,9 @@
-// SCENE SETTINGS
+
+/* 
+####################
+## SCENE SETTINGS ##
+####################
+*/
 // ground params
 const GROUND_WIDTH = 600;
 const GROUND_HEIGHT = 400;
@@ -10,7 +15,11 @@ const CAMERA_ZOOM = 500;
 const CAMERA_POS_X = 300;
 const CAMERA_POS_Y = 200;
 
-// SYSTEM SETTINGS
+/* 
+#######################
+### SYSTEM SETTINGS ###
+#######################
+*/
 // agent amount
 var AMOUNT_AGENTS = 100;
 // Promień sąsiedztwa
@@ -28,4 +37,4 @@ var weightMinimalDistance = 0.15;
 // Waga zakłóceń
 var weightPerturbation = 0.1;
 // Prędkość maksymalna
-var maxVelocity = 4.0;
+var maxVelocity = 2.0;
