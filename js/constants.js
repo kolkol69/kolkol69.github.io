@@ -4,6 +4,7 @@
 ## SCENE SETTINGS ##
 ####################
 */
+
 // ground params
 const GROUND_WIDTH = 600;
 const GROUND_HEIGHT = 400;
@@ -16,9 +17,9 @@ const CAMERA_POS_X = 300;
 const CAMERA_POS_Y = 200;
 
 /* 
-#######################
-### SYSTEM SETTINGS ###
-#######################
+#####################
+## SYSTEM SETTINGS ##
+#####################
 */
 // agent amount
 var AMOUNT_AGENTS = 100;
