@@ -14,3 +14,6 @@ So you dont need to place them manually for now, and they are randomly allocated
 ## Buttons
 * Update - updates data without refreshing the scene; Can be used to lower the amount of moving agents or to give them new settings without repainting. The one which are not moving are now considered as obstacles; The previous agents' trajectory and speed remain the same;
 * Repaint - repaints the whole scene, resets all the settings to the one which are set in the side panel; 
+
+# Settings description
+*_comming soon_*
