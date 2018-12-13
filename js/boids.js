@@ -1,5 +1,5 @@
 var boids;
-var agents = new Array(AMOUNT_AGENTS);
+var agents = new Array(agentsAmount);
 
 const width = GROUND_WIDTH;
 const height = GROUND_HEIGHT;
@@ -9,12 +9,12 @@ function modify_speed_and_direction() {
 	let dist = 0.0;
 	let deg = 0.0;
 
-	for (i = 0; i < AMOUNT_AGENTS; i++) {
+	for (i = 0; i < agentsAmount; i++) {
 		boids[i].mean_vx = boids[i].vx;
 		boids[i].mean_vy = boids[i].vy;
 		boids[i].mean_d = 0;
 		boids[i].num = 1;
-		for (j = 0; j < AMOUNT_AGENTS; j++) {
+		for (j = 0; j < agentsAmount; j++) {
 			if (j == i) continue;
 			dist = Math.sqrt(Math.pow(boids[i].x - boids[j].x, 2) + Math.pow(boids[i].y - boids[j].y, 2));
 			deg = Math.acos(
@@ -32,7 +32,7 @@ function modify_speed_and_direction() {
 		}
 	}
 
-	for (i = 0; i < AMOUNT_AGENTS; i++) {
+	for (i = 0; i < agentsAmount; i++) {
 		//adjust speed to neighbours speed
 		boids[i].vx += (weightNeighbourVelocity * ((boids[i].mean_vx / boids[i].num) - boids[i].vx));
 		boids[i].vy += (weightNeighbourVelocity * ((boids[i].mean_vy / boids[i].num) - boids[i].vy));
@@ -42,7 +42,7 @@ function modify_speed_and_direction() {
 		boids[i].vy += (weightPerturbation * ((Math.random() - 0.5) * maxVelocity));
 
 		if (boids[i].num > 1) boids[i].mean_d /= (boids[i].num - 1);
-		for (j = 0; j < AMOUNT_AGENTS; j++) {
+		for (j = 0; j < agentsAmount; j++) {
 			if (j == i) continue;
 			dist = Math.sqrt(Math.pow(boids[i].x - boids[j].x, 2) + Math.pow(boids[i].y - boids[j].y, 2));
 			deg = Math.acos(
@@ -53,6 +53,12 @@ function modify_speed_and_direction() {
 			deg = Math.abs((180 * deg) / Math.PI);
 			if (dist < neighbourRadius && deg < observDegree) {
 				if (Math.abs(boids[j].x - boids[i].x) > minDistance) {
+					/**
+					 * boids[i].vx += 0.005 * (((boids[j].x - boids[i].x) * (dist - boids[i].mean_d)) / dist);
+					 * czym mensza wartosc weightNeighbourDistance (0.005) tym bilshe grupujutsja agenty
+					 * ale i tym bilsh stabilno wygladaje systema
+					 * agenty ne "diorgajutsja" jaksho probujut' wyrwatysja z grupy
+					*/
 					boids[i].vx += (weightNeighbourDistance / boids[i].num) * (((boids[j].x - boids[i].x) * (dist - boids[i].mean_d)) / dist);
 					boids[i].vy += (weightNeighbourDistance / boids[i].num) * (((boids[j].y - boids[i].y) * (dist - boids[i].mean_d)) / dist);
 				} else //neighbours are too close
@@ -96,25 +102,22 @@ function move_and_display() {
 	}
 
 	setBoidsPosition(boids);
-
 	window.requestAnimationFrame(move_and_display);
 }
-
-//initialize data
 const setBoidsPosition = (boids) => {
-	if (AMOUNT_AGENTS > agents.length){
+	if (agentsAmount > agents.length){
 		createMoreMeshes(agents);
 	}
-	for (let i = 0; i < AMOUNT_AGENTS; i++) {
+	for (let i = 0; i < agentsAmount; i++) {
 		agents[i].position.x = boids[i].x;
 		agents[i].position.z = boids[i].y;
 	}
 }
 
 function createMoreMeshes (agents) {
-	for (let i = agents.length-1; i < AMOUNT_AGENTS - 1; i++) {
+	for (let i = agents.length-1; i < agentsAmount - 1; i++) {
 		agents.push(BABYLON.MeshBuilder.CreateBox("", {
-            height: 10,
+			height: 10,
             width: 3,
             depth: 3
         }, scene));
@@ -122,10 +125,11 @@ function createMoreMeshes (agents) {
 	}
 }
 
+//initialize data
 const init = (scene) => {
 	agents = createAgentMeshes(scene);
-	boids = new Array(AMOUNT_AGENTS);
-	for (i = 0; i < AMOUNT_AGENTS; i++) {
+	boids = new Array(agentsAmount);
+	for (i = 0; i < agentsAmount; i++) {
 		boids[i] = {};
 		boids[i].x = Math.floor(Math.random() * width);
 		boids[i].y = Math.floor(Math.random() * height);
