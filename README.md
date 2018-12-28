@@ -4,12 +4,16 @@ Aggregate dynamics for dense crowd simulation
 # Test website
 https://kolkol69.github.io/
 
+# Dev repo
+https://github.com/kolkol69/crowd-simulation
+
 # Start
 To start simply open the .html file
 
 # Description
 As for now there is limit to 100 agents. Once you lower the limit to, for example, 60, the rest 40 (100-60=40) will become obstacles;
 So you dont need to place them manually for now, and they are randomly allocated.
+To make agents look more like a crowd without grouping set Neighbour Radius smaller than Minimal Distance. 
 
 ## Buttons
 * Update - updates data without refreshing the scene; Can be used to lower the amount of moving agents or to give them new settings without repainting. The one which are not moving are now considered as obstacles; The previous agents' trajectory and speed remain the same;
@@ -27,9 +31,6 @@ So you dont need to place them manually for now, and they are randomly allocated
 7. Weight Minimal Distance - is used to define agent behavior if two (or more) agents are too close to each other.
 8. Weight Perturbation - perturbation is added to make Agents' moving around look more _chaotic_. If an agent is in a group with other agents, this value defines how likely he will exit it. The more the values is, the more likely he will try to escape from the froup.
 9. Max Velocity - defines agents' maximum possible speed.
-
-
-boids[i].vx += 0.005 * (((boids[j].x - boids[i].x) * (dist - boids[i].mean_d)) / dist);
-* czym mensza wartosc weightNeighbourDistance (0.005) tym bilshe grupujutsja agenty
-* ale i tym bilsh stabilno wygladaje systema
-* agenty ne "diorgajutsja" jaksho probujut' wyrwatysja z grupy
+10. Speed to target - defines the speed of the agents which have target. 
+11. Time to achive targets - sets timer's time, so each 3000ms(default) some agents might want to move towards the target. The rest time agents are moving rather chaotically.
+12. Chances to achive targets - defines how likely bigger amount of agents will group near defined target.
