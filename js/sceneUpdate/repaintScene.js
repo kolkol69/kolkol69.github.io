@@ -7,9 +7,12 @@ function repaint_scene() {
         createLights(scene);
         createGround(scene);
         createTouristPlaces(scene);
-        init(scene);
+        createTargets(scene);
+        resetTimers();
 
         return scene;
     };
+    
     scene = createScene();
+    start();
 };
