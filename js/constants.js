@@ -62,8 +62,7 @@ let chanceToGetToTarget = 2; // example: 100 / 3 ~~ 33.3%
 */
 
 const OBSTACLE_POSITIONS = [{
-        // SUKIENNICE
-        name: "sukiennice",
+        name: "Sukiennice",
         x: 400,
         y: 220,
         width: 50,
@@ -71,7 +70,6 @@ const OBSTACLE_POSITIONS = [{
         rotation: 0,
     },
     {
-        // KOSCIOL SWIETEGO WOJCECHA
         name: "Kosciol Swietego Wojcecha",
         x: 520,
         y: 100,
@@ -80,7 +78,6 @@ const OBSTACLE_POSITIONS = [{
         rotation: 30,
     },
     {
-        // WIEZA RATUSZOWA
         name: "Wieza Ratuszowa",
         x: 320,
         y: 125,
@@ -89,27 +86,81 @@ const OBSTACLE_POSITIONS = [{
         rotation: 0,
     },
     {
-        name:'Pomnik Adama Mickiewicza',
-        x: 60,
-        y: 150,
+        name: 'Pomnik Adama Mickiewicza',
+        x: 510,
+        y: 233,
         width: 15,
         depth: 15,
         rotation: 0,
     },
-    // {
-    //     x: 290,
-    //     y: 300,
-    //     width: 50,
-    //     depth: 10,
-    // },
-    // {
-    //     x: 300,
-    //     y: 200,
-    //     width: 10,
-    //     depth: 10,
-    // }
+    {
+        name: 'Bazylia Mariacka',
+        x: 620,
+        y: 373,
+        width: 100,
+        depth: 50,
+        rotation: 15,
+    },
+    {
+        name: 'Muzeum Historyczne',
+        x: 180,
+        y: 300,
+        width: 130,
+        depth: 130,
+        rotation: 0,
+    },
+    {
+        name: 'Domek',
+        x: 180,
+        y: 150,
+        width: 130,
+        depth: 130,
+        rotation: 0.05,
+    },
+    {
+        name: 'Maly rynek 1',
+        x: 785,
+        y: 360,
+        width: 30,
+        depth: 130,
+        rotation: 0,
+    },
+    {
+        name: '',
+        x: 640,
+        y: 305,
+        width: 85,
+        depth: 20,
+        rotation: 0,
+    },
+    {
+        name: 'Maly rynek 2',
+        x: 700,
+        y: 360,
+        width: 30,
+        depth: 130,
+        rotation: 0,
+    },
+    {
+        name: 'Kamienica Hipolitow',
+        x: 760,
+        y: 470,
+        width: 80,
+        depth: 60,
+        rotation: 0,
+    },
 ]
-let TARGET_POSITIONS = [
+let TARGET_POSITIONS = [{
+        x: 710,
+        y: 416,
+
+    }, {
+        x: 380,
+        y: 432,
+    }, {
+        x: 110,
+        y: 40,
+    }
     // {
     //         x: 310,
     //         y: 200,
@@ -137,15 +188,4 @@ let TARGET_POSITIONS = [
     //         width: 50,
     //         depth: 10,
     //     }, 
-    {
-        x: 710,
-        y: 416,
-
-    }, {
-        x: 380,
-        y: 432,
-    }, {
-        x: 110,
-        y: 40,
-    }
 ]
