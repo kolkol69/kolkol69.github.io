@@ -48,7 +48,7 @@ let weightMinimalDistance = 0.15;
 // Waga zakłóceń
 let weightPerturbation = 0.1;
 // Prędkość maksymalna
-let maxVelocity = 1.5;
+let maxVelocity = 1.0;
 // defines how fast agents move towards the target
 let speedToTarget = 1.0;
 // defines how fast agents will get to the target
